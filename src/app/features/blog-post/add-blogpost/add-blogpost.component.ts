@@ -30,7 +30,6 @@ export class AddBlogpostComponent implements OnDestroy {
   }
 
   onFormSubmit(): void {
-    console.log('hit submit');
     this.addBlogPostSubscription = this.blogPostService
       .createBlogPost(this.model)
       .subscribe({

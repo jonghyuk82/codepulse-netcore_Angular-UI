@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { BlogPost } from '../models/blog-post.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { BlogpostListComponent } from '../blogpost-list/blogpost-list.component';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +17,9 @@ export class BlogPostService {
       `${environment.apiBaseUrl}/api/blogposts`,
       data
     );
+  }
+
+  getAllBlogPosts(): Observable<BlogPost[]> {
+    return this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/api/blogposts`);
   }
 }
